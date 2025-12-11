@@ -36,3 +36,9 @@ resilience4j:
       notificationService:
         maxAttempts: 3
         waitDuration: 100ms
+  ratelimiter:
+    configs:
+      notificationService:
+        timeoutDuration: 5s
+        limitForPeriod: 10
+        limit-refresh-period: 1s
