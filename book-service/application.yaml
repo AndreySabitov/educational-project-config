@@ -19,3 +19,20 @@ spring:
 jwt:
   secret-key: 3f7a9b2e5c8d1f6g4h0i9j2k5l7m8n1o3p6q9r2s4t7u0v1w5x8y2z
   expiration: 600000
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      notificationService:
+        slidingWindowSize: 20
+        failureRateThreshold: 70
+        waitDurationInOpenState: 10000
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: COUNT_BASED
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+  retry:
+    instances:
+      notificationService:
+        maxAttempts: 3
+        waitDuration: 100ms
