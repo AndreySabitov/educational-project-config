@@ -52,8 +52,3 @@ resilience4j:
         timeoutDuration: 5s
         limitForPeriod: 10
         limit-refresh-period: 1s
-
-management:
-  tracing:
-    sampling:
-      probability: 1.0
